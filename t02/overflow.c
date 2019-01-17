@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 #define SIZE 4
-#define OVERFLOW 4
+#define OVERFLOW 5
 
 int main() {
     int index = 0;
