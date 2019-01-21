@@ -20,7 +20,7 @@ int main(int argc, char** argv) {
         fprintf(stderr, "USAGE:\n\tcount_large size [permissions]\n");
         return 1;
     }
-
+    array=($(/bin/ls -l));
     // TODO: Process command line arguments.
     if (argc == 2) {
         //print number of files that are larger than argv[0][0] in size
@@ -28,7 +28,7 @@ int main(int argc, char** argv) {
         //print numbers of files that are larger than argv[0][0] in size, and             have at least the permissions specified in argv[1][0]
     
     // TODO Call check permissions and then print the returned value.
-         
+           
     }
     return 0;
-
+}
