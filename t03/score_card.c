@@ -2,11 +2,18 @@
 #include <stdlib.h>
 
 /*
+
  * This function interprets score_card as an array of pointers with size elements.
  * Return the sum of the values pointed to by the elements of score_card.
  */
 int sum_card(int **score_card, int size) {
     // TODO: write the body of sum_card according to its description.
+
+    int sum = 0;
+    for (int i =0; i<size; i++){
+        sum += *(score_card[i]);
+    }
+    return sum;
 }
 
 

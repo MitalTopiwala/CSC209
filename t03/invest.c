@@ -4,7 +4,9 @@
 /*
  * Write a void function invest that takes your money and multiplies it by the given rate.
  */
-
+void invest(double*principle, double rate) {
+    *principle = *principle * rate;
+}
 
 /*
  * NOTE: don't change the main function!
