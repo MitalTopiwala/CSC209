@@ -2,7 +2,8 @@
 In this test, all assignment/tutorial directories and feedback.txt files are present.
 Expected Results: 
 Assignment Total: 44 / 60
-Tutorial Total: 11 / 33\n
+Tutorial Total: 11 / 33
+
 Output received:
 a1: 10 / 15
 a2: 12 / 15
