@@ -9,7 +9,7 @@ int main() {
             printf("%s\n", s);
 
         }else{
-            printf("%c\n",(int) s[num-1]);
+            printf("%c\n",(int) s[num]);
 
         }
    
