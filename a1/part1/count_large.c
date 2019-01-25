@@ -5,9 +5,9 @@
 // TODO: Implement a helper named check_permissions that matches the prototype below.
 int check_permissions(char * standard, char * tocheck) {
     char skip = '-';
-    for (int i=0;i<9;i++){
+    for (int i=1;i<10;i++){
         if (strcmp(&standard[i],&skip)!=0){
-            if(!(standard[i]==tocheck[i])){
+            if(!(standard[i]==tocheck[i-1])){
                 return 1;
             }
         }
@@ -23,17 +23,21 @@ int main(int argc, char** argv) {
         return 1;
     }
     
-    char perm[9];
+    char perm[10];
     int size;
     char name[31];   
-    
+    int min_size = strtol(argv[1], NULL, 10);
+
     // TODO: Process command line arguments.
     int total =0;
+    scanf("%*s %*d");//skips the first line
+
     if (argc == 2) {
         //print number of files that are larger than argv[1] in size
      
         while(scanf("%*s %*d %*s %*s %d %*d %*s %*s %s",&size,name) != EOF){
-            if (size > (int)*argv[1]){
+            
+            if (size > min_size){
                 total+=1;
             }
         }
@@ -41,10 +45,10 @@ int main(int argc, char** argv) {
 
     }else{
         //print numbers of files that are larger than argv[1] in size, and             have at least the permissions specified in argv[2]
-        while(scanf("%[9]s %*d %*s %*s %d %*d %*s %*s %s",perm,&size,name)!=EOF){
+        while(scanf("%[10]s %*d %*s %*s %d %*d %*s %*s %s",perm,&size,name)!=EOF){
 
     // TODO Call check permissions and then print the returned value.
-            if(size > (int)*argv[1] && check_permissions(argv[2], perm)==0){
+            if(size > min_size && (check_permissions(argv[2], perm)==0)){
                 total+=1;
             }
         }
