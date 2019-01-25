@@ -6,8 +6,9 @@
 int check_permissions(char * standard, char * tocheck) {
     char skip = '-';
     for (int i=1;i<10;i++){
-        if (strcmp(&standard[i],&skip)!=0){
-            if(!(standard[i]==tocheck[i-1])){
+        if (!(standard[i-1] == skip)){
+            if(!(standard[i-1]==tocheck[i])){
+                //printf("%c %c", standard[i-1], tocheck[i]);
                 return 1;
             }
         }
@@ -23,7 +24,7 @@ int main(int argc, char** argv) {
         return 1;
     }
     
-    char perm[10];
+    char perm[11];
     int size;
     char name[31];   
     int min_size = strtol(argv[1], NULL, 10);
@@ -45,8 +46,8 @@ int main(int argc, char** argv) {
 
     }else{
         //print numbers of files that are larger than argv[1] in size, and             have at least the permissions specified in argv[2]
-        while(scanf("%[10]s %*d %*s %*s %d %*d %*s %*s %s",perm,&size,name)!=EOF){
-
+        while(scanf("%s %*d %*s %*s %d %*d %*s %*s %s",perm,&size,name)!=EOF){
+            
     // TODO Call check permissions and then print the returned value.
             if(size > min_size && (check_permissions(argv[2], perm)==0)){
                 total+=1;
