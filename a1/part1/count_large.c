@@ -36,7 +36,7 @@ int main(int argc, char** argv) {
     if (argc == 2) {
         //print number of files that are larger than argv[1] in size
      
-        while(scanf("%*s %*d %*s %*s %d %*d %*s %*s %s",&size,name) != EOF){
+        while(scanf("%*s %*d %*s %*s %d %*s %*s %*s %s",&size,name) != EOF){
             
             if (size > min_size){
                 total+=1;
@@ -46,7 +46,7 @@ int main(int argc, char** argv) {
 
     }else{
         //print numbers of files that are larger than argv[1] in size, and             have at least the permissions specified in argv[2]
-        while(scanf("%s %*d %*s %*s %d %*d %*s %*s %s",perm,&size,name)!=EOF){
+        while(scanf("%s %*d %*s %*s %d %*s %*s %*s %s",perm,&size,name)!=EOF){
             
     // TODO Call check permissions and then print the returned value.
             if(size > min_size && (check_permissions(argv[2], perm)==0)){
