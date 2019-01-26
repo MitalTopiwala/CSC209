@@ -20,8 +20,8 @@ do
         score=${grArray[0]}
         max=${grArray[1]}
         
-        atotal=$atotal+${grArray[0]}
-        amaxtotal=$amaxtotal+${grArray[1]}
+        atotal=$(($atotal + ${grArray[0]})) 
+        amaxtotal=$(($amaxtotal + ${grArray[1]})) 
         echo $x": "$score" / "$max
     fi
 
@@ -44,8 +44,8 @@ do
         score=${grArray[0]}
         max=${grArray[1]}
 
-        ttotal=$ttotal+${grArray[0]}
-        tmaxtotal=$tmaxtotal+${grArray[1]}
+        ttotal=$(($ttotal + ${grArray[0]})) 
+        tmaxtotal=$(($tmaxtotal + ${grArray[1]})) 
         echo $x": "$score" / "$max
     fi
 
