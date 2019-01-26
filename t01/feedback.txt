@@ -1,4 +1,2 @@
-WARNING: Compiling hello.c generates warnings. We are not deducting marks for that this time since it is the first tutorial, but pay attention to this in future tutorials.
-
-Submission includes a.out but shouldn't.
-3 / 4
+No errors detected
+4 / 4
