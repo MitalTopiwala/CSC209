@@ -19,5 +19,24 @@ int populate_array(int sin, int *sin_array) {
  * Return 0 (true) iff the given sin_array is a valid SIN.
  */
 int check_sin(int *sin_array) {
+    int sum = 0;
+    
+    if (sin_array[0]==0){
+        return 1;
+    }
+
+    for(int i=0; i<9; i++) {
+        if(sin_array[i]%10 !=0){
+            sum += 1 +sin_array[i]-10;
+        }else{
+            sum+=sin_array[i];
+        }
+    }
+    
+    if(sum%10 ==10){
+        return 0;
+    }
+        
+    
     return 1;
 }
