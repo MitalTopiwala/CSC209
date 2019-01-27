@@ -3,7 +3,8 @@
  * Convert a 9 digit int to a 9 element int array.
  */
 int populate_array(int sin, int *sin_array) {
-    if( sin%100000000 == 0 || sin%100000000 > 9){
+    //check if sin has less tahn or more tahn 9 digits
+    if( sin/100000000 <1  || sin/100000000 > 9){
         return 1;
     }
     for(int i = 0; i<9;i++){
@@ -33,7 +34,7 @@ int check_sin(int *sin_array) {
         }
     }
     
-    if(sum%10 ==10){
+    if(sum%10 ==0){
         return 0;
     }
         
