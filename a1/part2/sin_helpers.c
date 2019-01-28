@@ -7,10 +7,10 @@ int populate_array(int sin, int *sin_array) {
     if( sin/100000000 <1  || sin/100000000 > 9){
         return 1;
     }
-    for(int i = 0; i<9;i++){
-        int last_digit = (sin/10 - sin%10)*10;
-        sin_array[8-i] = last_digit;
-        sin = sin%10;
+    for(int i = 8; i>=0;i--){
+        int last_digit = sin%10;
+        sin_array[i] = last_digit;
+        sin = sin/10 - (sin%10)/10;
     }
     return 0;
 }
@@ -38,6 +38,5 @@ int check_sin(int *sin_array) {
         return 0;
     }
         
-    
     return 1;
 }
