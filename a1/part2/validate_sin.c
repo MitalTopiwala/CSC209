@@ -14,13 +14,16 @@ int main(int argc, char **argv) {
     }
     // TODO: Parse arguments and then call the two helpers in sin_helpers.c
     // to verify the SIN given as a command line argument.
-    int sin[9];
-    int pa = populate_array(argv[1][0], sin);
+    int *sin = malloc(sizeof(int)*9);
+    int given_sin = *argv[1];
+    int pa = populate_array(given_sin, sin);
     int sh = check_sin(sin);
+//    printf("%d %d", pa, sh);
     if (sh+pa!=0){
         printf("Invalid SIN");
         return 1;
     }
+    free(sin);
     printf("Valid SIN");
     return 0;
 }
