@@ -1,4 +1,4 @@
-#include <stdio.h>
+//#include <stdio.h>
 // TODO: Implement populate_array
 /*
  * Convert a 9 digit int to a 9 element int array.
@@ -25,9 +25,9 @@ int check_sin(int *sin_array) {
     
     int to_multiply[9] = {1,2,1,2,1,2,1,2,1};
     for(int i=0; i<9; i++) {
-        int multi_num = sin_array[i]*to_multiply[i];
+        int multi_num = sin_array[i] * to_multiply[i];
 
-        if(multi_num-10 >=0){
+        if(multi_num >=10){
             sum += 1 +(multi_num-10);
         }else{
             sum+=multi_num;
