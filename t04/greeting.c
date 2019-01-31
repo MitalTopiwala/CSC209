@@ -37,8 +37,10 @@ int main(int argc, char **argv) {
     char *name = argv[2];
 
     // Your code goes here
-
-
+    if(strlen(argv[1])+1+ strlen(argv[2])>19){
+                
+    }
+    
     printf("%s\n", greeting);
     return 0;
 }
