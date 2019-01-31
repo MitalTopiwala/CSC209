@@ -16,7 +16,11 @@ int main() {
 
     // Using a dummy head node
     struct ll_node *front = malloc(sizeof(struct ll_node));
+    front->next = NULL;
+    front->value = 0;
     struct ll_node *current = front;
+    struct ll_node *temp;
+    struct ll_node *fronttemp = front;
 
     while (scanf("%d", &user_inp) != EOF) {
         current->next = malloc(sizeof(struct ll_node));
@@ -28,8 +32,16 @@ int main() {
 
     for (sum = 0; front != NULL; front = front->next) {
         sum += front->value;
+         
     }
-    printf("The sum of the inputs is %d.\n", sum);
+   
+    while (fronttemp!=NULL){
+        temp = fronttemp;
+        fronttemp = fronttemp->next;
+        free(temp);
+   }
+    
+   printf("The sum of the inputs is %d.\n", sum);
 
     return 0;
 }
