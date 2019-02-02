@@ -35,11 +35,18 @@ int main(int argc, char **argv) {
     }
     char greeting[20];
     char *name = argv[2];
-
     // Your code goes here
+    
+    strcpy(greeting,argv[1]);
+    char space = ' ';
+    strcat(greeting, &space);
     if(strlen(argv[1])+1+ strlen(argv[2])>19){
-                
+        int total_len = strlen(argv[1])+1+ strlen(argv[2]);
+        int diff = total_len-19;
+        name[strlen(argv[2])-diff] = '\0';
+                         
     }
+    strcat(greeting, name);
     
     printf("%s\n", greeting);
     return 0;
