@@ -24,8 +24,6 @@ int main(int argc, char **argv) {
     printf("Width: %d\n", width);
     printf("Height: %d\n", height);
 
-    // Remove the next line once you start writing read_pixel_array
-    return 0;
 
     // Read in the pixel data
     struct pixel **pixels = read_pixel_array(image, pixel_array_offset, width, height);
@@ -40,7 +38,13 @@ int main(int argc, char **argv) {
         }
     }
 
-    // Clean up: you need to do this!
+//     Clean up: you need to do this!
+    fclose(image);
+    for(int i =0; i<height; i++){
+       
+            free(pixels[i]);
+        
 
+    }    
     return 0;
 }
