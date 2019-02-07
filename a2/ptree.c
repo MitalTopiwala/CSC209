@@ -47,7 +47,30 @@ void print_ptree(struct TreeNode *root, int max_depth) {
     // Here's a trick for remembering what depth (in the tree) you're at
     // and printing 2 * that many spaces at the beginning of the line.
     static int depth = 0;
-    printf("%*s", depth * 2, "");
+    //printf("%*s", depth * 2, "");
 
     // Your implementation goes here.
+    if(root == NULL ||max_depth ==0){i
+    //TODO: check if max depth is zero, if so traverse the whole tree
+    //TODO: stop if root == NULL or weve reached max depth
+    }else{
+        while(root->next_sibling != NULL){
+            //First collect and print infor about root
+            printf("%*s", depth * 2, "");
+            if(root->name == NULL){//is looking for NULL correct?
+                printf("%d", root->pid);
+
+            }else{
+                printf("%d: %s", root->pid, root->name);
+            }
+            //Then, Traverse child_procs linked list and recursivly call the function on each of them (remember do decrementy max_depth)
+            struct TreeNode curchild = root->child_procs
+            depth +=1;
+            print_ptree(&curchild, max_depth-1);
+            depth -=1;            
+            
+       
+            *root = root->next_sibling;//done here and moving on to next sibling
+        }
+    }
 }
