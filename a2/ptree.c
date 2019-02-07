@@ -39,6 +39,8 @@ int generate_ptree(struct TreeNode **root, pid_t pid) {
 }
 
 void insert_in_list(struct TreeNode **list,int len_list, struct TreeNode *to_insert){
+    //TODO; add to list with all its info without linking it in if no siblings
+    //      or children found
     //restucture child-procs
     while(to_insert->child_procs != NULL){
         for (int i =0; i<len_list; i++){
@@ -50,7 +52,7 @@ void insert_in_list(struct TreeNode **list,int len_list, struct TreeNode *to_ins
         to_insert->child_procs = to_insert->child_procs->child_procs;  
     }
     //restructure siblings
-    while(to_insert->sibling != NULL){
+    while(to_insert->next_sibling != NULL){
         for (int i =0; i<len_list; i++){
             if(list[i]->pid == to_insert->next_sibling->pid){
                 //use inserting in the middle of a linked list techniques from 
@@ -71,7 +73,10 @@ void print_ptree(struct TreeNode *root, int max_depth) {
     static int depth = 0;
     //printf("%*s", depth * 2, "");
 
+    
+
     // Your implementation goes here.
+    //TODO: check command line arguments and emit appropriate error message
     if(root == NULL ||max_depth ==-1){
     //TODO: generate ptree so this stops when  root == NULL 
     }else{
