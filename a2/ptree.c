@@ -34,10 +34,32 @@ int generate_ptree(struct TreeNode **root, pid_t pid) {
     printf("%s\n", procfile);
 
     // Your implementation goes here.
+    
     return 0;
 }
 
-
+void insert_in_list(struct TreeNode **list,int len_list, struct TreeNode *to_insert){
+    //restucture child-procs
+    while(to_insert->child_procs != NULL){
+        for (int i =0; i<len_list; i++){
+            if(list[i]->pid == to_insert->child_procs->pid){
+                //use inserting in the middle of a linked list techniques from 
+                //PCRS 
+            }
+        }
+        to_insert->child_procs = to_insert->child_procs->child_procs;  
+    }
+    //restructure siblings
+    while(to_insert->sibling != NULL){
+        for (int i =0; i<len_list; i++){
+            if(list[i]->pid == to_insert->next_sibling->pid){
+                //use inserting in the middle of a linked list techniques from 
+                //PCRS 
+            }
+        }
+        to_insert->next_sibling = to_insert ->next_sibling->next_sibling;
+    }
+}   
 /*
  * Prints the TreeNodes encountered on a preorder traversal of an PTree
  * to a specified maximum depth. If the maximum depth is 0, then the 
