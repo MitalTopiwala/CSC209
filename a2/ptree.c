@@ -50,27 +50,33 @@ void print_ptree(struct TreeNode *root, int max_depth) {
     //printf("%*s", depth * 2, "");
 
     // Your implementation goes here.
-    if(root == NULL ||max_depth ==0){i
-    //TODO: check if max depth is zero, if so traverse the whole tree
-    //TODO: stop if root == NULL or weve reached max depth
+    if(root == NULL ||max_depth ==-1){
+    //TODO: generate ptree so this stops when  root == NULL 
     }else{
-        while(root->next_sibling != NULL){
-            //First collect and print infor about root
+        while(root != NULL){
+            //First collect and print info about root
             printf("%*s", depth * 2, "");
-            if(root->name == NULL){//is looking for NULL correct?
-                printf("%d", root->pid);
-
+            if(root->name[0] == '\0'){//TODO: generate ptree accordingly 
+                printf("%d\n", root->pid);
             }else{
-                printf("%d: %s", root->pid, root->name);
+                printf("%d: %s\n", root->pid, root->name);
             }
-            //Then, Traverse child_procs linked list and recursivly call the function on each of them (remember do decrementy max_depth)
-            struct TreeNode curchild = root->child_procs
+
+            //Then, Traverse child_procs linked list and recursivly call the 
+            //function on each of them (remember to decrement max_depth)
+            struct TreeNode *curchild = root->child_procs;
             depth +=1;
-            print_ptree(&curchild, max_depth-1);
+            if (max_depth ==1){
+                print_ptree(curchild, -1);//to allow 0 param to be special
+            }else if(max_depth ==0){
+                print_ptree(curchild, max_depth);//to mantain 0
+            }else{
+                print_ptree(curchild, max_depth-1);//decrease normally otherwise
+            }
             depth -=1;            
             
        
-            *root = root->next_sibling;//done here and moving on to next sibling
+            root = root->next_sibling;//done here and moving on to next sibling
         }
     }
 }
