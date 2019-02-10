@@ -14,7 +14,7 @@ const unsigned int MAX_PATH_LENGTH = 1024;
     const char *PROC_ROOT = "/proc";
 #endif
 
-
+const unsigned int MAX_PID_LEN = 60;//can change later
 /*
  * Creates a PTree rooted at the process pid. The root of the tree is
  * placed in root. The function returns 0 if the tree was created 
@@ -34,11 +34,40 @@ int generate_ptree(struct TreeNode **root, pid_t pid) {
     printf("%s\n", procfile);
 
     // Your implementation goes here.
-    
+  
+    //1. craete a list of children pidsand keep track of # of children
+    char buffer[MAX_PID_LEN+1];
+    int num_children = 0;
+    int *children= malloc(sizeof(int)*100);//assuming max 100 children
+    int index = 0;
+    while(snprintf(buffer, MAX_PID_LEN + 1, "%s/%d/task/PID/children", PROC_ROOT, pid)!=NULL){
+        children[index] = (int)buffer;
+ 
+        num_children++;
+        index++;
+    }
+
+    //2. Base Case
+    if (num_children ==0){
+        return 0;
+    }    
+
+    //3.Cycle though children and recursivly create tree
+    strcut TreeNode* previous_child = NULL;
+    for(int i = num_children-1; i>=0; i--){
+        struct TreeNode** subtree;
+        generate_tree(subtree, children[i]);//might have to cats to type pid_t
+        *subtree->next_sibling = previous_child;
+        previous_child = *subtree;
+    }
+    *root->child_procs = previous_child;
+
+      
     return 0;
 }
-
-void insert_in_list(struct TreeNode **list,int len_list, struct TreeNode *to_insert){
+/*
+//return the nuber of TreeNodes added to list
+int insert_in_list(struct TreeNode **list,int len_list, struct TreeNode *to_insert){
     //TODO; add to list with all its info without linking it in if no siblings
     //      or children found
     //restucture child-procs
@@ -46,9 +75,17 @@ void insert_in_list(struct TreeNode **list,int len_list, struct TreeNode *to_ins
         for (int i =0; i<len_list; i++){
             if(list[i]->pid == to_insert->child_procs->pid){
                 //use inserting in the middle of a linked list techniques from 
-                //PCRS 
+                //PCRS
+                char buffer[MAX_PID_LEN+1];
+                struct TreeNode next_child;
+                
+                    struct TreeNode *curr = (.pid = 
+
+                }
+                
+                
             }
-        }
+        
         to_insert->child_procs = to_insert->child_procs->child_procs;  
     }
     //restructure siblings
@@ -61,7 +98,10 @@ void insert_in_list(struct TreeNode **list,int len_list, struct TreeNode *to_ins
         }
         to_insert->next_sibling = to_insert ->next_sibling->next_sibling;
     }
-}   
+} 
+*/
+
+  
 /*
  * Prints the TreeNodes encountered on a preorder traversal of an PTree
  * to a specified maximum depth. If the maximum depth is 0, then the 
