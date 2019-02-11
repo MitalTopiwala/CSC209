@@ -1,6 +1,7 @@
 #include <stdio.h>
 // Add your system includes here.
-
+#include <stdlib.h>
+#include <string.h>
 #include "ptree.h"
 
 // Defining the constants described in ptree.h
@@ -34,33 +35,67 @@ int generate_ptree(struct TreeNode **root, pid_t pid) {
     printf("%s\n", procfile);
 
     // Your implementation goes here.
+    
+    //0. create the root node with name and pid
+    struct TreeNode rn;
+    rn.pid = pid;
+    strncpy(rn.name, procfile, MAX_PATH_LENGTH+1); 
+    
+    *root = &rn;
   
     //1. craete a list of children pidsand keep track of # of children
-    char buffer[MAX_PID_LEN+1];
+    /*char buffer[MAX_PID_LEN+1];
     int num_children = 0;
     int *children= malloc(sizeof(int)*100);//assuming max 100 children
     int index = 0;
-    while(snprintf(buffer, MAX_PID_LEN + 1, "%s/%d/task/PID/children", PROC_ROOT, pid)!=NULL){
-        children[index] = (int)buffer;
- 
+    while(snprintf(buffer, MAX_PID_LEN + 1, "%s/%d/task/PID/children", PROC_ROOT, pid)!=0){
+        
+        char *endptr;
+        children[index] = (int)strtol(buffer,&endptr, 10);
+        
+       
         num_children++;
         index++;
+        buffer[0] = '\0';//clear variable
     }
+    */
 
+    char buffer[(MAX_PID_LEN+1)*100];
+    int num_children = 0;
+    int *children= malloc(sizeof(int)*100);//assuming max 100 children
+    char *token;
+    char *rest = NULL;
+    
+    if(snprintf(buffer, (MAX_PID_LEN +1)*100, "%s/%d/task/PID/children", PROC_ROOT, pid)!=0){
+        for (token = strtok_r(buffer, " ", &rest); token != NULL; token = strtok_r(NULL, " ", &rest)){
+         char * end_ptr;
+         children[num_children] = (int)strtol(token,&end_ptr, 10);
+       
+         printf("%d\n", children[num_children]);
+         num_children +=1;
+       
+         }
+
+    }
+   /* char buffer[MAX_PID_LEN+1];
+    int num_children = 0;
+    int *children= malloc(sizeof(int)*100);//assuming max 100 children
+    
+    while(lstat(
     //2. Base Case
     if (num_children ==0){
         return 0;
     }    
-
+    */
     //3.Cycle though children and recursivly create tree
-    strcut TreeNode* previous_child = NULL;
+    struct TreeNode* previous_child = NULL;
     for(int i = num_children-1; i>=0; i--){
-        struct TreeNode** subtree;
-        generate_tree(subtree, children[i]);//might have to cats to type pid_t
-        *subtree->next_sibling = previous_child;
+        struct TreeNode** subtree = malloc(sizeof(struct TreeNode*));
+        generate_ptree(subtree, children[i]);//might have to cats to type pid_t
+        (*subtree)->next_sibling = previous_child;
         previous_child = *subtree;
     }
-    *root->child_procs = previous_child;
+    (*root)->child_procs = previous_child;
 
       
     return 0;
