@@ -2,6 +2,10 @@
 // Add your system includes here.
 #include <stdlib.h>
 #include <string.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
+
 #include "ptree.h"
 
 // Defining the constants described in ptree.h
@@ -39,11 +43,38 @@ int generate_ptree(struct TreeNode **root, pid_t pid) {
     //0. create the root node with name and pid
     struct TreeNode rn;
     rn.pid = pid;
-    strncpy(rn.name, procfile, MAX_PATH_LENGTH+1); 
+    strcpy(rn.name, procfile); 
     
+    root = malloc(sizeof(struct TreeNode*));        
     *root = &rn;
   
     //1. craete a list of children pidsand keep track of # of children
+    char childfile[MAX_PATH_LENGTH + 1];
+    if (snprintf(childfile, MAX_PATH_LENGTH + 1, "%s/%d/task/PID/children", PROC_ROOT, pid) < 0) {
+        fprintf(stderr, "snprintf failed to produce a children filename\n");
+        return 1;
+    }
+
+    printf("%s\n", childfile);
+
+    struct stat buffer;
+    if(lstat(childfile, &buffer) !=0){
+        fprintf(stderr, "lstat failed to find file\n");
+        return 1;
+    }
+
+
+    FILE* child_stream = fopen(childfile, "rb");
+    int *child = malloc(sizeof(int)*MAX_PID_LEN);
+    int num_children = 0;
+    int *children= malloc(sizeof(int)*100);//assuming max 100 children
+
+    if(fscanf(child_stream, "%d", child) != 0){
+        children[num_children] = *child;
+        num_children+=1;        
+    } 
+    fclose(child_stream);
+
     /*char buffer[MAX_PID_LEN+1];
     int num_children = 0;
     int *children= malloc(sizeof(int)*100);//assuming max 100 children
@@ -60,7 +91,7 @@ int generate_ptree(struct TreeNode **root, pid_t pid) {
     }
     */
 
-    char buffer[(MAX_PID_LEN+1)*100];
+    /*char buffer[(MAX_PID_LEN+1)*100];
     int num_children = 0;
     int *children= malloc(sizeof(int)*100);//assuming max 100 children
     char *token;
@@ -77,6 +108,10 @@ int generate_ptree(struct TreeNode **root, pid_t pid) {
          }
 
     }
+
+    */
+
+
    /* char buffer[MAX_PID_LEN+1];
     int num_children = 0;
     int *children= malloc(sizeof(int)*100);//assuming max 100 children
@@ -88,7 +123,7 @@ int generate_ptree(struct TreeNode **root, pid_t pid) {
     }    
     */
     //3.Cycle though children and recursivly create tree
-    struct TreeNode* previous_child = NULL;
+    struct TreeNode* previous_child = malloc(sizeof(struct TreeNode));
     for(int i = num_children-1; i>=0; i--){
         struct TreeNode** subtree = malloc(sizeof(struct TreeNode*));
         generate_ptree(subtree, children[i]);//might have to cats to type pid_t
