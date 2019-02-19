@@ -65,12 +65,12 @@ int generate_ptree(struct TreeNode **root, pid_t pid) {
 
 
     FILE* child_stream = fopen(childfile, "rb");
-    int *child = malloc(sizeof(int)*MAX_PID_LEN);
+    int child = 0;
     int num_children = 0;
     int *children= malloc(sizeof(int)*100);//assuming max 100 children
 
-    if(fscanf(child_stream, "%d", child) != 0){
-        children[num_children] = *child;
+    if(fscanf(child_stream, "%d", &child) != 0){
+        children[num_children] = child;
         num_children+=1;        
     } 
     fclose(child_stream);
@@ -125,7 +125,7 @@ int generate_ptree(struct TreeNode **root, pid_t pid) {
     //3.Cycle though children and recursivly create tree
     struct TreeNode* previous_child = malloc(sizeof(struct TreeNode));
     for(int i = num_children-1; i>=0; i--){
-        struct TreeNode** subtree = malloc(sizeof(struct TreeNode*));
+        struct TreeNode** subtree = NULL;//malloc(sizeof(struct TreeNode*));
         generate_ptree(subtree, children[i]);//might have to cats to type pid_t
         (*subtree)->next_sibling = previous_child;
         previous_child = *subtree;
