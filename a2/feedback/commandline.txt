@@ -1,0 +1,61 @@
+FFFFFFF.
+======================================================================
+FAIL: test_cmdline_invalid_flag (__main__.TestCommandline)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a2/marking_scripts/test_helpers.py", line 193, in _t
+    self.assertEqual(returncode, expected_status)
+AssertionError: -11 != 1
+
+======================================================================
+FAIL: test_cmdline_no_arg (__main__.TestCommandline)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a2/marking_scripts/test_helpers.py", line 193, in _t
+    self.assertEqual(returncode, expected_status)
+AssertionError: -11 != 1
+
+======================================================================
+FAIL: test_cmdline_no_d_arg (__main__.TestCommandline)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a2/marking_scripts/test_helpers.py", line 193, in _t
+    self.assertEqual(returncode, expected_status)
+AssertionError: -11 != 1
+
+======================================================================
+FAIL: test_cmdline_nonnumeric_d_flag (__main__.TestCommandline)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a2/marking_scripts/test_helpers.py", line 193, in _t
+    self.assertEqual(returncode, expected_status)
+AssertionError: -11 != 1
+
+======================================================================
+FAIL: test_cmdline_nonnumeric_pid (__main__.TestCommandline)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a2/marking_scripts/test_helpers.py", line 193, in _t
+    self.assertEqual(returncode, expected_status)
+AssertionError: -11 != 1
+
+======================================================================
+FAIL: test_cmdline_pid_and_d_valid (__main__.TestCommandline)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a2/marking_scripts/test_helpers.py", line 193, in _t
+    self.assertEqual(returncode, expected_status)
+AssertionError: -11 != 0
+
+======================================================================
+FAIL: test_cmdline_pid_valid (__main__.TestCommandline)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a2/marking_scripts/test_helpers.py", line 193, in _t
+    self.assertEqual(returncode, expected_status)
+AssertionError: -11 != 0
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.073s
+
+FAILED (failures=7)
