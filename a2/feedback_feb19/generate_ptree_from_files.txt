@@ -1,0 +1,169 @@
+.FFFFFFFFFFFFFFFFFF
+======================================================================
+FAIL: test_treegen_in_tests_child_PID_not_found (__main__.TestTreeGeneration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a2/marking_scripts/test_helpers.py", line 190, in _t
+    self.assertEqual(stdout, expected_stdout)
+AssertionError: '' != '1'
++ 1
+
+======================================================================
+FAIL: test_treegen_in_tests_child_PID_not_found_build_continues (__main__.TestTreeGeneration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a2/marking_scripts/test_helpers.py", line 190, in _t
+    self.assertEqual(stdout, expected_stdout)
+AssertionError: '' != '1'
++ 1
+
+======================================================================
+FAIL: test_treegen_in_tests_child_exe_not_found (__main__.TestTreeGeneration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a2/marking_scripts/test_helpers.py", line 190, in _t
+    self.assertEqual(stdout, expected_stdout)
+AssertionError: '' != '1'
++ 1
+
+======================================================================
+FAIL: test_treegen_in_tests_child_exe_not_found_build_continues (__main__.TestTreeGeneration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a2/marking_scripts/test_helpers.py", line 190, in _t
+    self.assertEqual(stdout, expected_stdout)
+AssertionError: '' != '1'
++ 1
+
+======================================================================
+FAIL: test_treegen_in_tests_children_file_not_exist (__main__.TestTreeGeneration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a2/marking_scripts/test_helpers.py", line 190, in _t
+    self.assertEqual(stdout, expected_stdout)
+AssertionError: '' != '1'
++ 1
+
+======================================================================
+FAIL: test_treegen_in_tests_cmdline_args (__main__.TestTreeGeneration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a2/marking_scripts/test_helpers.py", line 190, in _t
+    self.assertEqual(stdout, expected_stdout)
+AssertionError: '' != '1'
++ 1
+
+======================================================================
+FAIL: test_treegen_in_tests_cmdline_empty (__main__.TestTreeGeneration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a2/marking_scripts/test_helpers.py", line 190, in _t
+    self.assertEqual(stdout, expected_stdout)
+AssertionError: '' != '1'
++ 1
+
+======================================================================
+FAIL: test_treegen_in_tests_cmdline_not_exist (__main__.TestTreeGeneration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a2/marking_scripts/test_helpers.py", line 190, in _t
+    self.assertEqual(stdout, expected_stdout)
+AssertionError: '' != '1'
++ 1
+
+======================================================================
+FAIL: test_treegen_in_tests_cmdline_path (__main__.TestTreeGeneration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a2/marking_scripts/test_helpers.py", line 190, in _t
+    self.assertEqual(stdout, expected_stdout)
+AssertionError: '' != '1'
++ 1
+
+======================================================================
+FAIL: test_treegen_in_tests_malloc_fails (__main__.TestTreeGeneration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a2/marking_scripts/test_helpers.py", line 190, in _t
+    self.assertEqual(stdout, expected_stdout)
+AssertionError: 'tests/25987/exe' != '1'
+- tests/25987/exe
++ 1
+
+
+======================================================================
+FAIL: test_treegen_in_tests_multiple_children_multiple_grandchildren (__main__.TestTreeGeneration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a2/marking_scripts/test_helpers.py", line 190, in _t
+    self.assertEqual(stdout, expected_stdout)
+AssertionError: '' != '1'
++ 1
+
+======================================================================
+FAIL: test_treegen_in_tests_multiple_children_no_grandchildren (__main__.TestTreeGeneration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a2/marking_scripts/test_helpers.py", line 190, in _t
+    self.assertEqual(stdout, expected_stdout)
+AssertionError: '' != '1'
++ 1
+
+======================================================================
+FAIL: test_treegen_in_tests_no_children (__main__.TestTreeGeneration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a2/marking_scripts/test_helpers.py", line 190, in _t
+    self.assertEqual(stdout, expected_stdout)
+AssertionError: '' != '1'
++ 1
+
+======================================================================
+FAIL: test_treegen_in_tests_one_child_one_grandchild (__main__.TestTreeGeneration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a2/marking_scripts/test_helpers.py", line 190, in _t
+    self.assertEqual(stdout, expected_stdout)
+AssertionError: '' != '1'
++ 1
+
+======================================================================
+FAIL: test_treegen_in_tests_one_child_only (__main__.TestTreeGeneration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a2/marking_scripts/test_helpers.py", line 190, in _t
+    self.assertEqual(stdout, expected_stdout)
+AssertionError: '' != '1'
++ 1
+
+======================================================================
+FAIL: test_treegen_in_tests_pid_exe_not_found (__main__.TestTreeGeneration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a2/marking_scripts/test_helpers.py", line 190, in _t
+    self.assertEqual(stdout, expected_stdout)
+AssertionError: '' != '1'
++ 1
+
+======================================================================
+FAIL: test_treegen_in_tests_pid_not_found (__main__.TestTreeGeneration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a2/marking_scripts/test_helpers.py", line 190, in _t
+    self.assertEqual(stdout, expected_stdout)
+AssertionError: '' != '1'
++ 1
+
+======================================================================
+FAIL: test_treegen_in_tests_task_not_exist (__main__.TestTreeGeneration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a2/marking_scripts/test_helpers.py", line 190, in _t
+    self.assertEqual(stdout, expected_stdout)
+AssertionError: '' != '1'
++ 1
+
+----------------------------------------------------------------------
+Ran 19 tests in 0.090s
+
+FAILED (failures=18)
