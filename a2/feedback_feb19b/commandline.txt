@@ -1,0 +1,21 @@
+.....FF.
+======================================================================
+FAIL: test_cmdline_pid_and_d_valid (__main__.TestCommandline)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a2/marking_scripts/test_helpers.py", line 193, in _t
+    self.assertEqual(returncode, expected_status)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_cmdline_pid_valid (__main__.TestCommandline)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a2/marking_scripts/test_helpers.py", line 193, in _t
+    self.assertEqual(returncode, expected_status)
+AssertionError: 1 != 0
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.076s
+
+FAILED (failures=2)
