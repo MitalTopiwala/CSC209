@@ -36,7 +36,7 @@ int generate_ptree(struct TreeNode **root, pid_t pid) {
         return 1;
     }
 
-    printf("%s\n", procfile);
+//    printf("%s\n", procfile);
 
     // Your implementation goes here.
     
@@ -55,7 +55,7 @@ int generate_ptree(struct TreeNode **root, pid_t pid) {
         return 1;
     }
 
-    printf("%s\n", childfile);
+  //  printf("%s\n", childfile);
 
     struct stat buffer;
     if(lstat(childfile, &buffer) !=0){
