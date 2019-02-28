@@ -25,8 +25,11 @@ int main(int argc, char **argv) {
 			perror("fork");
 			exit(1);
 		}
+                int delay = 5;
                 if(n == 0){
                         i = ih;
+                }else{
+                        wait(&delay);
                 }
 
  		printf("pid = %d, ppid = %d, i = %d\n", getpid(), getppid(), i);
