@@ -1,7 +1,17 @@
 ===== Question 1 =====
-
+B
+E
 ===== Question 2 =====
+Total orderings = 6
+ABDEBCE
+ABBCEDE
+ABDBCEE
+ABCEBDE
+ABBDECE
+ABCBDEE
 
 ===== Question 3 =====
-
+16
 ===== Question 4 =====
+a -> b -> d -> g -> h -> m -> n -> o -> p
+a -> c -> e -> f -> i -> j -> k -> l
