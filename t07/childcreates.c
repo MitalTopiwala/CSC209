@@ -17,11 +17,18 @@ int main(int argc, char **argv) {
 	num_kids = strtol(argv[1], NULL, 10);
 
 	for (i = 0; i < num_kids; i++) {
+                int ih = i;
+                i = num_kids -1;
 		n = fork();
+
 		if (n < 0) {
 			perror("fork");
 			exit(1);
 		}
+                if(n == 0){
+                        i = ih;
+                }
+
  		printf("pid = %d, ppid = %d, i = %d\n", getpid(), getppid(), i);
 	}
 
