@@ -42,18 +42,18 @@ int main(void) {
       if (write(fd[1], password, MAX_PASSWORD) == -1) {
           perror("write to pipe");
       }
-      close(fd[0]);
+      close(fd[1]);
       
      
       //wait for child to return value
-      int status;
+      int status=0;
       wait(&status); 
           if(WIFEXITED(status) != 0){
               int ret_val = WEXITSTATUS(status);//return value of validate   
 
               if (ret_val == 0) {
                     printf("%s", SUCCESS);
-               } else if(ret_val == 2) {
+               }else if(ret_val == 2 || ret_val == 1) {
                     printf("%s", INVALID);
                }else if(ret_val ==3){
                     printf("%s", NO_USER);
@@ -67,7 +67,7 @@ int main(void) {
       //give pipe stuff to validate as command arguements
       dup2(fd[0], fileno(stdin));
       close(fd[0]);
-      execl("validate.c", "validate", NULL);
+      execl("./validate", "validate", NULL);
 
 
       //
