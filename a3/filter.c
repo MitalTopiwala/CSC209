@@ -12,5 +12,6 @@ int filter(int n, int readfd, int writefd) {
             int writefd_ret = write(writefd, &value, sizeof(int));
         }
     }
+    return 0;
 }
 
