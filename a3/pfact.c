@@ -22,8 +22,12 @@ int main(int argc, char *argv[]) {
     if(argc !=2){
         fprintf(stderr, "Usage:\n\tpfact n\n");
     }
-
-
+    //get n value 
+    char** temp = NULL;
+    int n_val = strtol(argv[1],temp, 10);
+    
+    //Call primefact helper function 
+    primefact(n_val); 
     
     return 0;
 }
