@@ -6,7 +6,7 @@ int filter(int n, int readfd, int writefd) {
     // TODO: Complete
     int value;
     int count = 0;
-    while ((int readfd_ret = read(readfd, &value, sizeof(int))) != 0){
+    while (read(readfd, &value, sizeof(int)) != 0){
         count += 1;
 
         if((n%value) != 0){//value can be any number ffrom 2 to n
