@@ -57,9 +57,11 @@ void primefact(int n){
       //the make_stage function will make new file descriptors, use one of 
       //them as third arguement for filter
     int **fd2 = malloc(sizeof(int)*2);
-    make_stage(n, fd[0],fd2 );
-
-    //then call filter(m, f[0], )?
+    int stage_ret = make_stage(n, fd[0],fd2 );
+    if(stage_ret == 255){
+        exit(1);
+    }
+    //filter(m, f[0], );
     
 
 
