@@ -1,0 +1,242 @@
+FFFFFFFFFFFFFFFFFFFFF
+======================================================================
+FAIL: test_base_case_2 (__main__.SieveTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a3/marking_scripts/test_helpers.py", line 190, in _t
+    self.assertEqual(stdout, expected_stdout)
+AssertionError: 'Number of filters = 1' != '2 is prime\nNumber of filters = 0'
+- Number of filters = 1
+?                     ^
++ 2 is prime
+Number of filters = 0
+? +++++++++++                    ^
+
+
+======================================================================
+FAIL: test_base_case_3 (__main__.SieveTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a3/marking_scripts/test_helpers.py", line 190, in _t
+    self.assertEqual(stdout, expected_stdout)
+AssertionError: 'Number of filters = 1' != '3 is prime\nNumber of filters = 0'
+- Number of filters = 1
+?                     ^
++ 3 is prime
+Number of filters = 0
+? +++++++++++                    ^
+
+
+======================================================================
+FAIL: test_base_case_4 (__main__.SieveTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a3/marking_scripts/test_helpers.py", line 190, in _t
+    self.assertEqual(stdout, expected_stdout)
+AssertionError: 'Number of filters = 1' != '4 2 2\nNumber of filters = 0'
+- Number of filters = 1
+?                     ^
++ 4 2 2
+Number of filters = 0
+? ++++++                    ^
+
+
+======================================================================
+FAIL: test_cube (__main__.SieveTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a3/marking_scripts/test_helpers.py", line 184, in _t
+    self.assertEqual(stderr, expected_stderr)
+AssertionError: 'writing to pipe: Broken pipe' != ''
+- writing to pipe: Broken pipe
++ 
+
+
+======================================================================
+FAIL: test_cube_and_another_large_prime (__main__.SieveTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a3/marking_scripts/test_helpers.py", line 184, in _t
+    self.assertEqual(stderr, expected_stderr)
+AssertionError: 'writing to pipe: Broken pipe' != ''
+- writing to pipe: Broken pipe
++ 
+
+
+======================================================================
+FAIL: test_cube_and_another_prime_below_sqrt (__main__.SieveTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a3/marking_scripts/test_helpers.py", line 184, in _t
+    self.assertEqual(stderr, expected_stderr)
+AssertionError: 'writing to pipe: Broken pipe' != ''
+- writing to pipe: Broken pipe
++ 
+
+
+======================================================================
+FAIL: test_cube_and_another_smaller_prime (__main__.SieveTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a3/marking_scripts/test_helpers.py", line 184, in _t
+    self.assertEqual(stderr, expected_stderr)
+AssertionError: 'writing to pipe: Broken pipe' != ''
+- writing to pipe: Broken pipe
++ 
+
+
+======================================================================
+FAIL: test_exactly_2_primes (__main__.SieveTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a3/marking_scripts/test_helpers.py", line 187, in _t
+    self.assertTrue(stdout == expected_stdout or stdout == expected_stdout_alt)
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_exactly_2_primes_diff (__main__.SieveTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a3/marking_scripts/test_helpers.py", line 187, in _t
+    self.assertTrue(stdout == expected_stdout or stdout == expected_stdout_alt)
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_four_prime_factors (__main__.SieveTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a3/marking_scripts/test_helpers.py", line 184, in _t
+    self.assertEqual(stderr, expected_stderr)
+AssertionError: 'writing to pipe: Broken pipe' != ''
+- writing to pipe: Broken pipe
++ 
+
+
+======================================================================
+FAIL: test_large_prime (__main__.SieveTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a3/marking_scripts/test_helpers.py", line 184, in _t
+    self.assertEqual(stderr, expected_stderr)
+AssertionError: 'writing to pipe: Broken pipe' != ''
+- writing to pipe: Broken pipe
++ 
+
+
+======================================================================
+FAIL: test_many_filters (__main__.SieveTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a3/marking_scripts/test_helpers.py", line 184, in _t
+    self.assertEqual(stderr, expected_stderr)
+AssertionError: 'writing to pipe: Broken pipe' != ''
+- writing to pipe: Broken pipe
++ 
+
+
+======================================================================
+FAIL: test_many_many_filters (__main__.SieveTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a3/marking_scripts/test_helpers.py", line 184, in _t
+    self.assertEqual(stderr, expected_stderr)
+AssertionError: 'writing to pipe: Broken pipe' != ''
+- writing to pipe: Broken pipe
++ 
+
+
+======================================================================
+FAIL: test_perfect_square_of_primes (__main__.SieveTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a3/marking_scripts/test_helpers.py", line 190, in _t
+    self.assertEqual(stdout, expected_stdout)
+AssertionError: 'Number of filters = 1' != '169 13 13\nNumber of filters = 5'
+- Number of filters = 1
+?                     ^
++ 169 13 13
+Number of filters = 5
+? ++++++++++                    ^
+
+
+======================================================================
+FAIL: test_prime (__main__.SieveTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a3/marking_scripts/test_helpers.py", line 190, in _t
+    self.assertEqual(stdout, expected_stdout)
+AssertionError: 'Number of filters = 1' != '101 is prime\nNumber of filters = 4'
+- Number of filters = 1
++ 101 is prime
+Number of filters = 4
+
+
+======================================================================
+FAIL: test_prime_diff (__main__.SieveTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a3/marking_scripts/test_helpers.py", line 190, in _t
+    self.assertEqual(stdout, expected_stdout)
+AssertionError: 'Number of filters = 1' != '263 is prime\nNumber of filters = 6'
+- Number of filters = 1
++ 263 is prime
+Number of filters = 6
+
+
+======================================================================
+FAIL: test_square_and_larger_1025 (__main__.SieveTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a3/marking_scripts/test_helpers.py", line 184, in _t
+    self.assertEqual(stderr, expected_stderr)
+AssertionError: 'writing to pipe: Broken pipe' != ''
+- writing to pipe: Broken pipe
++ 
+
+
+======================================================================
+FAIL: test_square_and_smaller_1183 (__main__.SieveTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a3/marking_scripts/test_helpers.py", line 184, in _t
+    self.assertEqual(stderr, expected_stderr)
+AssertionError: 'writing to pipe: Broken pipe' != ''
+- writing to pipe: Broken pipe
++ 
+
+
+======================================================================
+FAIL: test_square_product_of_primes (__main__.SieveTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a3/marking_scripts/test_helpers.py", line 190, in _t
+    self.assertEqual(stdout, expected_stdout)
+AssertionError: 'Number of filters = 1' != '100 is not the product of two primes\nNumber of filters = 0'
+- Number of filters = 1
++ 100 is not the product of two primes
+Number of filters = 0
+
+
+======================================================================
+FAIL: test_three_prime_factors (__main__.SieveTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a3/marking_scripts/test_helpers.py", line 184, in _t
+    self.assertEqual(stderr, expected_stderr)
+AssertionError: 'writing to pipe: Broken pipe' != ''
+- writing to pipe: Broken pipe
++ 
+
+
+======================================================================
+FAIL: test_too_many_filters (__main__.SieveTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a3/marking_scripts/test_helpers.py", line 193, in _t
+    self.assertEqual(returncode, expected_status)
+AssertionError: 1 != 2
+
+----------------------------------------------------------------------
+Ran 21 tests in 0.033s
+
+FAILED (failures=21)
