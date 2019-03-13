@@ -45,23 +45,39 @@ void primefact(int n){
     
     if(fork_ret > 0){
     //we are in the parent
-    close(fd[0]);
+        close(fd[0]);
     
     //write values from 1 to n into pipe
-    for(int i = 2; i<=n; i++){
-        int write_ret  = write(fd[1], &i, sizeof(int));
-        if(write_ret == -1){
+        for(int i = 2; i<=n; i++){
+            int write_ret  = write(fd[1], &i, sizeof(int));
+            if(write_ret == -1){
             //what do i do? raise an error?then do i exit?
-            //perror("writing to pipe");
-            //exit(1);
-        }
+            perror("writing to pipe");
+            exit(1);
+            }
 
 
-    }
+        } 
+
+        //wait for child to return value
+        int status=0;
+        wait(&status);
+        if(WIFEXITED(status) != 0){
+            int result = WEXITSTATUS(status);//return value of validate   
+            printf("Number of filters = %d\n", result);
+             
+         }
+    
 
     }else{
     //we are in the child
     //call the make_stage() function?
+      //the make_stage function will make new file descriptors, use one of 
+      //them as third arguement for filter
+    make_stage(n, fd[0], &fd);
+
+    //then call filter(m, f[0], )?
+    
 
 
     }
