@@ -1,0 +1,16 @@
+.F.
+======================================================================
+FAIL: test_multi_value (__main__.SieveTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a3/marking_scripts/test_helpers.py", line 190, in _t
+    self.assertEqual(stdout, expected_stdout)
+AssertionError: 'Filtered val: 5\nFiltered val: 10\nFiltered val: 7' != 'Filtered val: 5\nFiltered val: 7'
+  Filtered val: 5
+- Filtered val: 10
+  Filtered val: 7
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.007s
+
+FAILED (failures=1)

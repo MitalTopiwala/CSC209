@@ -1,0 +1,17 @@
+E
+======================================================================
+ERROR: setUpClass (__main__.SieveDesignTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "a3_design_tests.py", line 25, in setUpClass
+    cls.trace_obj = cls._check_trace(args=[cls.arg])
+  File "/home/furkan/csc209-w19/grading/mark_a3/marking_scripts/test_helpers.py", line 250, in _check_trace
+    ltrace_flags, **kwargs)
+  File "/home/furkan/csc209-w19/grading/mark_a3/marking_scripts/test_helpers.py", line 298, in __init__
+    raise Exception("First call of ltrace is not pid!")
+Exception: First call of ltrace is not pid!
+
+----------------------------------------------------------------------
+Ran 0 tests in 0.007s
+
+FAILED (errors=1)
