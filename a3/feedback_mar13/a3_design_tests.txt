@@ -1,17 +1,32 @@
-E
+...F.E.F.
 ======================================================================
-ERROR: setUpClass (__main__.SieveDesignTest)
+ERROR: test_num_filters_matches_num_processes (__main__.SieveDesignTest)
+Test that the reported number of filters matches the number of processes found.
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "a3_design_tests.py", line 25, in setUpClass
-    cls.trace_obj = cls._check_trace(args=[cls.arg])
-  File "/home/furkan/csc209-w19/grading/mark_a3/marking_scripts/test_helpers.py", line 250, in _check_trace
-    ltrace_flags, **kwargs)
-  File "/home/furkan/csc209-w19/grading/mark_a3/marking_scripts/test_helpers.py", line 298, in __init__
-    raise Exception("First call of ltrace is not pid!")
-Exception: First call of ltrace is not pid!
+  File "a3_design_tests.py", line 68, in test_num_filters_matches_num_processes
+    [self._get_claimed_num_filters() + 1, self._get_claimed_num_filters() + 2])
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'
+
+======================================================================
+FAIL: test_first_process_exit_status (__main__.SieveDesignTest)
+Test that the first process exits with status 0.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "a3_design_tests.py", line 127, in test_first_process_exit_status
+    self.assertEqual(0, self.trace_obj.get_status(self.trace_obj.first_process))
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_read_in_each_process (__main__.SieveDesignTest)
+Test that read is called by each process except the first.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "a3_design_tests.py", line 157, in test_read_in_each_process
+    any('read' in call[0] for call in self.trace_obj.process_log[pid]))
+AssertionError: False is not true
 
 ----------------------------------------------------------------------
-Ran 0 tests in 0.007s
+Ran 9 tests in 0.012s
 
-FAILED (errors=1)
+FAILED (failures=2, errors=1)

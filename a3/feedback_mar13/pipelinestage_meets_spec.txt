@@ -7,9 +7,9 @@ Traceback (most recent call last):
     stdout, stderr, returncode = self._run_exec(args=args, input_=input_, timeout=timeout, check=check)
   File "/home/furkan/csc209-w19/grading/mark_a3/marking_scripts/test_helpers.py", line 101, in _run_exec
     **kwargs)
-  File "/home/furkan/csc209-w19/grading/mark_a3/marking_scripts/test_helpers.py", line 503, in _exec
+  File "/home/furkan/csc209-w19/grading/mark_a3/marking_scripts/test_helpers.py", line 506, in _exec
     raise e from e
-  File "/home/furkan/csc209-w19/grading/mark_a3/marking_scripts/test_helpers.py", line 499, in _exec
+  File "/home/furkan/csc209-w19/grading/mark_a3/marking_scripts/test_helpers.py", line 502, in _exec
     stdout, stderr = proc.communicate(timeout=timeout, input=input_)
   File "/usr/lib/python3.6/subprocess.py", line 843, in communicate
     stdout, stderr = self._communicate(input, endtime, timeout)
@@ -27,9 +27,9 @@ Traceback (most recent call last):
     stdout, stderr, returncode = self._run_exec(args=args, input_=input_, timeout=timeout, check=check)
   File "/home/furkan/csc209-w19/grading/mark_a3/marking_scripts/test_helpers.py", line 101, in _run_exec
     **kwargs)
-  File "/home/furkan/csc209-w19/grading/mark_a3/marking_scripts/test_helpers.py", line 503, in _exec
+  File "/home/furkan/csc209-w19/grading/mark_a3/marking_scripts/test_helpers.py", line 506, in _exec
     raise e from e
-  File "/home/furkan/csc209-w19/grading/mark_a3/marking_scripts/test_helpers.py", line 499, in _exec
+  File "/home/furkan/csc209-w19/grading/mark_a3/marking_scripts/test_helpers.py", line 502, in _exec
     stdout, stderr = proc.communicate(timeout=timeout, input=input_)
   File "/usr/lib/python3.6/subprocess.py", line 843, in communicate
     stdout, stderr = self._communicate(input, endtime, timeout)
@@ -40,6 +40,6 @@ Traceback (most recent call last):
 subprocess.TimeoutExpired: Command '['./pipeline_stage_tester', '9901']' timed out after 5 seconds
 
 ----------------------------------------------------------------------
-Ran 2 tests in 10.018s
+Ran 2 tests in 10.017s
 
 FAILED (errors=2)
