@@ -1,0 +1,40 @@
+..FFF
+======================================================================
+FAIL: test_too_few_args (__main__.TestCountLarge)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a1/marking_scripts/test_helpers.py", line 190, in _t
+    self.assertEqual(stdout, expected_stdout)
+AssertionError: 'Invalid SIN' != ''
+- Invalid SIN
++ 
+
+
+======================================================================
+FAIL: test_too_many_args (__main__.TestCountLarge)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a1/marking_scripts/test_helpers.py", line 190, in _t
+    self.assertEqual(stdout, expected_stdout)
+AssertionError: 'Invalid SIN' != ''
+- Invalid SIN
++ 
+
+
+======================================================================
+FAIL: test_valid (__main__.TestCountLarge)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/furkan/csc209-w19/grading/mark_a1/marking_scripts/test_helpers.py", line 190, in _t
+    self.assertEqual(stdout, expected_stdout)
+AssertionError: 'Invalid SIN' != 'Valid SIN'
+- Invalid SIN
+? ^^^
++ Valid SIN
+? ^
+
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.074s
+
+FAILED (failures=3)

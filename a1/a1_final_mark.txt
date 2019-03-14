@@ -1,0 +1,15 @@
+count_large (5 / 6)
+  failed test_ignore_directory_no_perm_arg
+  failed test_ignore_directory_with_perm_arg
+
+check_sin (3 / 3)
+
+
+populate_array (3 / 3)
+
+
+validate_sin (0 / 3)
+  failed test_too_few_args
+  failed test_too_many_args
+  failed test_valid
+11.00 / 15
