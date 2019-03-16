@@ -81,15 +81,20 @@ int main(int argc, char *argv[]) {
 
     // Your solution below ...
     //chcek that correct arguements are given
-   
-    if(argc !=2 || argv[1] < 0 || isdigit(argv[1]) < 0 ){
+        //get n value 
+    if(argc != 2){
         fprintf(stderr, "Usage:\n\tpfact n\n");
     }
-    //get n value 
     char** temp = NULL;
-    int n_val = strtol(argv[1],temp, 10);
+    int n_val = strtol(argv[1],temp, 10); 
+   
+    if(n_val < 0 ){
+        fprintf(stderr, "Usage:\n\tpfact n\n");
+    }
+    
 
-    //Call primefact helper function 
+    //Call primefact helper function
+    //for(int i = 0;  
     primefact(n_val);
 
     return 0;
