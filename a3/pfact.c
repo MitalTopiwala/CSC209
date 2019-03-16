@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
 #include <unistd.h>
 #include <signal.h>
@@ -59,7 +60,7 @@ void primefact(int n){
     int **fd2 = malloc(sizeof(int)*2);
     int stage_ret = make_stage(n, fd[0],fd2 );
     if(stage_ret == 255){
-        exit(1);
+        exit(2);
     }
     //filter(m, f[0], );
     
@@ -80,7 +81,8 @@ int main(int argc, char *argv[]) {
 
     // Your solution below ...
     //chcek that correct arguements are given
-    if(argc !=2){
+   
+    if(argc !=2 || argv[1] < 0 || isdigit(argv[1]) < 0 ){
         fprintf(stderr, "Usage:\n\tpfact n\n");
     }
     //get n value 
