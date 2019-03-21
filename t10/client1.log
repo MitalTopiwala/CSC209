@@ -1,0 +1,12 @@
+Script started on Thu 21 Mar 2019 05:07:30 PM EDT
+topiwal3@dh2026pc01:~/209_repo/t10$ randclient 127.0.0.1
+bash: randclient: command not found
+topiwal3@dh2026pc01:~/209_repo/t10$ randclient 127.0.0.1[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K./bufserver[7Pmakevim Makefile[8Pmake./bufserver[Krandclient 127.0.0.1
+bash: randclient: command not found
+topiwal3@dh2026pc01:~/209_repo/t10$ randclient 127.0.0.1
+bash: randclient: command not found
+topiwal3@dh2026pc01:~/209_repo/t10$ randclient 127.0.0.1[1@.[1@/[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+topiwal3@dh2026pc01:~/209_repo/t10$ exit
+exit
+
+Script done on Thu 21 Mar 2019 05:12:37 PM EDT

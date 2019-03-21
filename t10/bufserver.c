@@ -36,9 +36,9 @@ int main() {
         char *after = buf;       // Pointer to position after the data in buf
 
         int nbytes;
-        while ((nbytes = read(fd, after, room)) > 0) {
+        while ((nbytes = read(fd, after, room)) > 0) { 
             // Step 1: update inbuf (how many bytes were just added?)
-
+            inbuf+= nbytes;
 
             int where;
 
@@ -58,6 +58,7 @@ int main() {
                 // (Replace the "\r\n" with appropriate characters so the
                 // message prints correctly to stdout.)
 
+                buf[where-2] = '\0';//Q: do i have to move the other values forward(and remove the '\n'?
 
                 printf("Next message: %s\n", buf);
                 // Note that we could have also used write to avoid having to
@@ -65,14 +66,21 @@ int main() {
 
                 // Step 4: update inbuf and remove the full line from the buffer
                 // There might be stuff after the line, so don't just do inbuf = 0.
-
+                
                 // You want to move the stuff after the full line to the beginning
                 // of the buffer.  A loop can do it, or you can use memmove.
                 // memmove(destination, source, number_of_bytes)
+                int number_of_bytes = inbuf-where;
+                memmove(&buf[0], &buf[where], number_of_bytes);
+                inbuf = number_of_bytes;
+                
+                
 
 
             }
             // Step 5: update after and room, in preparation for the next read.
+            room = sizeof(buf) - inbuf;
+            after = &buf[inbuf];
 
 
         }
@@ -92,5 +100,11 @@ int main() {
  * Definitely do not use strchr or other string functions to search here. (Why not?)
  */
 int find_network_newline(const char *buf, int inbuf) {
+    //int found_r = -1;
+    for (int i = 0; i <inbuf-1; i++){
+        if(buf[i] == '\r' && buf[i+1] == '\n'){
+            return i+2;
+        }
+    }
     return -1;
 }
