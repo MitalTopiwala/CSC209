@@ -32,12 +32,12 @@ int find_network_newline(const char *buf, int inbuf) {
     return -1;
 }
 
-void jobs(pid_t[] pid_lst){
+void jobs(pid_t* pid_lst){
     int num_pids = (sizeof(pid_lst) / sizeof(pid_lst[0]));
     if (num_pids == 0){
       printf("[SERVER] No currently running jobs");
     }else{
-      char print_msg[10*MAXJOBS];
+      char print_msg[10*MAX_JOBS];
       strcpy(print_msg, "[SERVER]");
       for(int i = 0; i < num_pids; i++){
         //convert pid to char and concat it to print_msg
@@ -69,7 +69,7 @@ int main(void) {
      */
      pid_t pids[MAX_JOBS];
      int num_jobs = 0; //make sure this is always < MAXJOBS
-     char* names[MAX_JOBS];
+//     char* names[MAX_JOBS];
 
      //start accepting connections
      while(1){
@@ -139,10 +139,10 @@ int main(void) {
                 }
                 */
 
-                      //2. use exec to actully execite the job_command[0] job (AND add pid to array)
+                 //2. use exec to actully execite the job_command[0] job (AND add pid to array)
 
                 char exe_file[BUFSIZE];//job name +arguements
-                snprintf(exe_file, BUFSIZE, "%s%s", JOBS_DIR, buf);
+                //snprintf(exe_file, BUFSIZE, "%s%s", JOBS_DIR, buf);
                       //TODO: how do i call the exe_file job with its arguement????
                       int fd[2];
                       if(pipe(fd) == -1){
@@ -169,12 +169,14 @@ int main(void) {
                         int status=0;
                         wait(&status);
                         if(WIFEXITED(status) != 0){
-                           int ret_val = WEXITSTATUS(status);//return value of validate   
+                           int ret_val = WEXITSTATUS(status);//return value of child job
+                           if(ret_val == -1){
+                            //do i have to handle?
+                           }   
                         }
-                        //check ret_val
 
-
-                       } else if(r == 0){ 
+                       } else if(r == 0){
+                         //IN CHILD 
                          close(fd[1]);
                          //read from pipe
                          char* job_read = NULL;
@@ -208,8 +210,9 @@ int main(void) {
                          }else{
 
                            char exec_job_name[BUFSIZE+2];
-                           strcpy(exec_job_name, "./");
-                           strcat(exec_job_name, job_command[0]);
+                           snprintf(exec_job_name, BUFSIZE, "%s/%s", JOBS_DIR, job_command[0]);
+                           //strcpy(exec_job_name, "./");
+                           //strcat(exec_job_name, job_command[0]);
 
                            int num_arg = (sizeof(job_command)/sizeof(job_command[0])) -1;
                          
