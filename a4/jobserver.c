@@ -4,6 +4,8 @@
 #include <unistd.h>
 #include <arpa/inet.h>
 
+#include <sys/wait.h>
+
 #include "socket.h"
 #include "jobprotocol.h"
 
@@ -30,6 +32,24 @@ int find_network_newline(const char *buf, int inbuf) {
     return -1;
 }
 
+void jobs(pid_t[] pid_lst){
+    int num_pids = (sizeof(pid_lst) / sizeof(pid_lst[0]));
+    if (num_pids == 0){
+      printf("[SERVER] No currently running jobs");
+    }else{
+      char print_msg[10*MAXJOBS];
+      strcpy(print_msg, "[SERVER]");
+      for(int i = 0; i < num_pids; i++){
+        //convert pid to char and concat it to print_msg
+        char pid_char[10];
+        snprintf(pid_char, 10, " %d", (int) pid_lst[i]);
+        strcat(print_msg, pid_char);  
+
+      }
+
+    }
+
+}
 
 int main(void) {
     // This line causes stdout and stderr not to be buffered.
@@ -106,6 +126,7 @@ int main(void) {
                 
                 //TODO: exectute job now (and add pid to pid array)
                       //1. job name and argyements are in buf right now, seperated by spaces. seperate them into an array
+                /*
                 char* job_command[BUFSIZE];// job name and arguemnts will be stored in this array
                  
                 char delin[] = " ";
@@ -116,11 +137,98 @@ int main(void) {
                    ptr = strtok(NULL, delin);
                    i += 1;
                 }
+                */
+
                       //2. use exec to actully execite the job_command[0] job (AND add pid to array)
 
-                char exe_file[BUFSIZE];//job name
-                snprintf(exe_file, BUFSIZE, "%s%s", JOBS_DIR, job_command[0]);
+                char exe_file[BUFSIZE];//job name +arguements
+                snprintf(exe_file, BUFSIZE, "%s%s", JOBS_DIR, buf);
                       //TODO: how do i call the exe_file job with its arguement????
+                      int fd[2];
+                      if(pipe(fd) == -1){
+                        perror("pipe");
+                      }
+                      int r = fork();
+
+                      if (r > 0){
+                        //IN PARENT 
+                        // DO I HAVE TO ADD A WHILE LOOP BEFORE I PIPE(and AfER I make the exe_file)? i think YES
+                        close(fd[0]);
+
+                        //write exec_file to pipe
+                        if (write(fd[1], exe_file, BUFSIZE) == -1) {
+                          perror("write to pipe");
+                        }
+                     
+                        close(fd[1]);
+
+                        //TODO: output "[SERVER] Job %d created" where %d is the PID of the created job.
+
+
+                        //wait for child to return value
+                        int status=0;
+                        wait(&status);
+                        if(WIFEXITED(status) != 0){
+                           int ret_val = WEXITSTATUS(status);//return value of validate   
+                        }
+                        //check ret_val
+
+
+                       } else if(r == 0){ 
+                         close(fd[1]);
+                         //read from pipe
+                         char* job_read = NULL;
+                         read(fd[0], job_read, BUFSIZE);
+
+                         //give pipe stuff to validate as command arguements
+                         char* job_command[BUFSIZE];// job name will be stored in this array
+
+                         char delin[] = " ";
+                         char *ptr = strtok(job_read, delin);
+                         int i = 0;
+                         while(ptr != NULL){
+                           job_command[i] = ptr;
+                           ptr = strtok(NULL, delin);
+                           i += 1;
+                         }
+      
+                         
+                         //Move the pointer in fd[0] to point to the first arguemnt of job
+                         //the code below is if we are giving the arguements in stdin
+                         /*fseek(fd[0], sizeof(job_name), SEEK_SET);
+
+                         dup2(fd[0], fileno(stdin));
+                         close(fd[0]);
+                         */
+
+                         //check to see if job_command[0] is 'jobs' and in that case add arguemnt pids list
+                         if(strcmp(job_command[0],  "jobs") == 0){
+                           jobs(pids);
+
+                         }else{
+
+                           char exec_job_name[BUFSIZE+2];
+                           strcpy(exec_job_name, "./");
+                           strcat(exec_job_name, job_command[0]);
+
+                           int num_arg = (sizeof(job_command)/sizeof(job_command[0])) -1;
+                         
+                           if(num_arg == 0){
+                             execl(exec_job_name, job_command[0], NULL);
+
+                           }else if(num_arg == 1){
+                             execl(exec_job_name, job_command[0], job_command[1], NULL);
+
+                           }else if(num_arg == 2){
+                             execl(exec_job_name, job_command[0], job_command[1], job_command[2], NULL);
+
+                           }//....how many arguements can it have??
+                         }
+                         // CHILD PROCESS DONE FOR A4***
+   
+
+                       }
+
 
                 //TODO: what do i dp after i have exectuted the job??
 
